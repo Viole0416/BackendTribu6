@@ -12,8 +12,7 @@ import java.util.Map;
 
 @Service
 public class EmailService {
-   @Value("${sendgrid.api.key}")
-  // aqui va la anotación Value que se saca para poder subirlo al repositorio//
+   @Value("${sendgrid.api.key}")// aqui va la anotación Value que se saca para poder subirlo al repositorio//
     private String apiKey;
    @Value("${sengrid.template.veterinaria}")
     private String templateVeterinaria;

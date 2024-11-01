@@ -54,20 +54,22 @@ public class NotificacionServicesImpl implements NotificacionService {
         return notificacion;
     }
 
-   @Override
+    @Override
     public Notificacion findById(Long id) {
         return notificacionRepository.findById(id)
-                .orElse(null) ;
+                .orElse(null);
     }
+
     @Override
     public List<Notificacion> findAll() {
         return notificacionRepository.findAll();
     }
 
-   /* @Override
+    @Override
     public List<Notificacion> findAllByUsuarioId(Long idUsuario) { // este permite buscar el ID del usuario y mostrar todas las notificaciones que se han hecho.
-        return notificacionRepository.findAllByUsuarioId(idUsuario);    // Implementación de notificacionService.}
+        return notificacionRepository.findNotificacionsByUsuarioId(idUsuario);    // Implementación de notificacionService.}
 
-    }*/
+    }
+
 }
 

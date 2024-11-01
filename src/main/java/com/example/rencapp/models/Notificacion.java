@@ -33,8 +33,8 @@ private Boolean leida;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    /* @ManyToOne
+     @ManyToOne
     @ JoinColumn (name = "usuario_id")
-    private Usuario usuarioId;  g1*/
+    private Usuario usuarioId;  //g1
 
 }

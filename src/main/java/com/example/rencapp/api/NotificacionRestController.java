@@ -29,16 +29,16 @@ public class NotificacionRestController {
         }
         return new ResponseEntity<>(notificacionSeleccionada, HttpStatus.OK);
     }
-    @GetMapping("/lista")
+    /*@GetMapping("/lista")
     public ResponseEntity<List<Notificacion>> findAllNotificacion() {
         List<Notificacion> listaNotificaciones = notificacionServicesImpl.findAll();
         return new ResponseEntity<>(listaNotificaciones, HttpStatus.OK);
-    }
+    } */
 
-   /* @GetMapping("/usuarioId")
+    @GetMapping("/usuarioId")
     public ResponseEntity<?>  findNotificacionAllByUsuarioId(@RequestParam Long id) {
         List<Notificacion> notificaciones = notificacionServicesImpl.findAllByUsuarioId(id);
-        return new ResponseEntity<>(notificaciones, HttpStatus.OK);  }*/
+        return new ResponseEntity<>(notificaciones, HttpStatus.OK);  }
 
     @GetMapping("/enviar/{email}/{numeroTelefonico}")
     public void enviarNotificacion(@PathVariable String email ,@PathVariable String numeroTelefonico, @RequestParam String departamento) {
