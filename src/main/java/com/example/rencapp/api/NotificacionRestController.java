@@ -23,15 +23,22 @@ public class NotificacionRestController {
 
     @GetMapping("/notificacion")
     public ResponseEntity <?> findNotificacionById(@RequestParam Long id) {
-        Notificacion notificacionSeleccionada = notificacionServicesImpl.findById(id);
+       Notificacion notificacionSeleccionada = notificacionServicesImpl.findById(id);
+        if (notificacionSeleccionada == null) {
+            return new ResponseEntity<>("No se encontró la notificación con el ID especificado", HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(notificacionSeleccionada, HttpStatus.OK);
+    }
+    @GetMapping("/lista")
+    public ResponseEntity<List<Notificacion>> findAllNotificacion() {
+        List<Notificacion> listaNotificaciones = notificacionServicesImpl.findAll();
+        return new ResponseEntity<>(listaNotificaciones, HttpStatus.OK);
     }
 
    /* @GetMapping("/usuarioId")
     public ResponseEntity<?>  findNotificacionAllByUsuarioId(@RequestParam Long id) {
         List<Notificacion> notificaciones = notificacionServicesImpl.findAllByUsuarioId(id);
         return new ResponseEntity<>(notificaciones, HttpStatus.OK);  }*/
-
 
     @GetMapping("/enviar/{email}/{numeroTelefonico}")
     public void enviarNotificacion(@PathVariable String email ,@PathVariable String numeroTelefonico, @RequestParam String departamento) {
@@ -51,4 +58,5 @@ public class NotificacionRestController {
 
         notificacionServicesImpl.crearNotificacion(email, numeroTelefonico,departamento,datos, agendamiento);   // g5
     }
+
 }

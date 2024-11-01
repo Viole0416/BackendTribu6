@@ -10,6 +10,7 @@ import java.util.Map;
 public interface NotificacionService {
 
     Notificacion findById(Long id);
+    List<Notificacion> findAll();
    /* List<Notificacion> findAllByUsuarioId(Long idUsuario);*/
     Notificacion crearNotificacion(String email, String numeroTelefono, String departamento, Map<String, String> datos, Agendamiento agendamiento);
 
